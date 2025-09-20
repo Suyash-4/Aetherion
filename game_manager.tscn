@@ -1,16 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://blqx7q8knxh1l"]
+[gd_scene load_steps=11 format=3 uid="uid://blqx7q8knxh1l"]
 
 [ext_resource type="Texture2D" uid="uid://tem77grq0pf0" path="res://spaceAssets/SpaceBackground-black.png" id="1_70yv6"]
+[ext_resource type="Script" uid="uid://biyindmbcwtjn" path="res://game_manager.gd" id="1_eakoi"]
 [ext_resource type="PackedScene" uid="uid://s8h5lk1srlle" path="res://entities/player/player.tscn" id="2_smx3j"]
 [ext_resource type="Texture2D" uid="uid://bmkgpyxqw186t" path="res://spaceAssets/spacepixels-0.2.0/horizontal_bar_blue.png" id="3_o2178"]
 [ext_resource type="PackedScene" uid="uid://dhpgmles7c3gj" path="res://entities/enemy_spawner/enemySpawner.tscn" id="4_d5upp"]
 [ext_resource type="Script" uid="uid://de1ypq502ai57" path="res://entities/enemy_spawner/enemy_spawner.gd" id="5_vk86k"]
 [ext_resource type="PackedScene" uid="uid://cpyn1ooyjthpq" path="res://entities/energy_bar/energyBar.tscn" id="6_shwjl"]
+[ext_resource type="Script" uid="uid://dvs46rnuiqksa" path="res://current_score.gd" id="8_8jrwq"]
+[ext_resource type="Script" uid="uid://cmq0lwjtbakmx" path="res://high_score.gd" id="9_gth8u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5upp"]
 size = Vector2(501.267, 20)
 
 [node name="GameManager" type="Node2D"]
+script = ExtResource("1_eakoi")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(251, 341)
@@ -41,3 +45,23 @@ texture = ExtResource("3_o2178")
 script = ExtResource("5_vk86k")
 
 [node name="Energy_bar" parent="." instance=ExtResource("6_shwjl")]
+
+[node name="scoreLabel" type="StaticBody2D" parent="."]
+disable_mode = 1
+
+[node name="currentScore" type="RichTextLabel" parent="scoreLabel"]
+offset_left = 321.0
+offset_top = 656.0
+offset_right = 492.0
+offset_bottom = 691.0
+text = "Current Score: 999999"
+fit_content = true
+script = ExtResource("8_8jrwq")
+
+[node name="highScore" type="RichTextLabel" parent="scoreLabel"]
+offset_left = 345.0
+offset_top = 640.0
+offset_right = 505.0
+offset_bottom = 671.0
+text = "High Score: 999999"
+script = ExtResource("9_gth8u")

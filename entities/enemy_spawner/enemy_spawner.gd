@@ -12,7 +12,7 @@ func _ready():
 	var timer = Timer.new()
 	add_child(timer) #Now we gotta add the timer to our scene ##since we are already in enemySpawner node, using add_child() will directly add it to this group. No need to get parents and stuff.
 	
-	timer.wait_time = 2 #kitni der mei trigger hoga baar baar -> 1.5 seconds
+	timer.wait_time = 2 #kitni der mei trigger hoga baar baar -> 2 seconds
 	
 	
 	timer.connect("timeout",_createEnemy) 

@@ -2,6 +2,7 @@ class_name Enemy #So that we can use this multiple times, in different files as 
 extends Area2D
 
 var speed = 80
+var points_for_kill = 10
 
 func _ready():
 	randomize()
@@ -18,3 +19,4 @@ func _on_area_entered(area: Area2D):
 		area.get_parent().queue_free() 
 		#Jo area milega, vo bullet ka hoga, so we get its parent i.e. the bullet node, and we delete (queue_free) it.
 		queue_free()
+		Global.current_score+=points_for_kill
